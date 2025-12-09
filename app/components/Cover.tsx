@@ -7,9 +7,10 @@ import { useState } from "react";
 // Definisikan props biar type-safe
 interface CoverProps {
   onOpen: () => void; // Function yang dipanggil saat tombol diklik
+  guestName: string;
 }
 
-export default function Cover({ onOpen }: CoverProps) {
+export default function Cover({ onOpen, guestName }: CoverProps) {
   const [isExit, setIsExit] = useState(false);
 
   const handleOpen = () => {
@@ -61,7 +62,8 @@ export default function Cover({ onOpen }: CoverProps) {
         >
             <p className="mb-8 font-light text-stone-200">
                 Kepada Yth.<br/>
-                <span className="font-bold text-lg">Bapak/Ibu/Saudara/i</span>
+                {/* Ganti teks statis dengan variabel guestName */}
+                <span className="font-bold text-lg capitalize">{guestName}</span>
             </p>
 
             {/* Tombol Interaktif */}
